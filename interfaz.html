@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interfaz de Navegación de Artículos</title>
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    nav {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+
+    /* Estilos específicos de categorías */
+    .category {
+      margin-bottom: 20px;
+    }
+
+    .category h2 {
+      margin-top: 0;
+    }
+
+    .category ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .category li {
+      margin-bottom: 10px;
+    }
+
+    .category li a {
+      display: block;
+      padding: 10px;
+      background-color: #eee;
+      text-decoration: none;
+      color: #333;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .category li a:hover {
+      background-color: #ccc;
+    }
+
+    .filter {
+      margin-bottom: 20px;
+    }
+
+    .filter input[type="text"] {
+      padding: 5px;
+      width: 120px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .filter input[type="submit"] {
+      padding: 5px 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Interfaz de Navegación de Artículos</h1>
+  </header>
+
+  <nav>
+    <a href="login.html">Iniciar sesión</a>
+    <a href="#filtroAnio">Filtrar por Año</a>
+  </nav>
+
+  <section class="container" id="filtroAnio">
+    <div class="filter">
+      <form id="filterForm">
+        <label for="anio">Año de Fabricación:</label>
+        <input type="text" id="anio" name="anio" placeholder="Ejemplo: 2022" required>
+        <input type="submit" value="Filtrar">
+      </form>
+    </div>
+
+    <h2>Artículos filtrados por Año de Fabricación</h2>
+    <ul id="filteredArticles">
+    </ul>
+  </section>
+
+  <section class="container" id="categoria1">
+    <div class="category">
+      <h2>Categoría 1</h2>
+      <ul>
+        <li><a href="#">Artículo 1</a></li>
+        <li><a href="#">Artículo 2</a></li>
+        <li><a href="#">Artículo 3</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container" id="categoria2">
+    <div class="category">
+      <h2>Categoría 2</h2>
+      <ul>
+        <li><a href="#">Artículo 4</a></li>
+        <li><a href="#">Artículo 5</a></li>
+        <li><a href="#">Artículo 6</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container" id="categoria3">
+    <div class="category">
+      <h2>Categoría 3</h2>
+      <ul>
+        <li><a href="#">Artículo 7</a></li>
+        <li><a href="#">Artículo 8</a></li>
+        <li><a href="#">Artículo 9</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <script>
+    const filterForm = document.getElementById('filterForm');
+    const filteredArticles = document.getElementById('filteredArticles');
+
+    filterForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const anio = document.getElementById('anio').value;
+      filteredArticles.innerHTML = ''; // Limpiar la lista de artículos filtrados antes de agregar nuevos
+
+      if (anio === '1992') {
+        // Año de fabricación 1992
+        const article1 = document.createElement('li');
+        article1.innerHTML = '<a href="#">Artículo 1</a>';
+        filteredArticles.appendChild(article1);
+
+        const article4 = document.createElement('li');
+        article4.innerHTML = '<a href="#">Artículo 4</a>';
+        filteredArticles.appendChild(article4);
+      } else if (anio === '2001') {
+        // Año de fabricación 2001
+        const article7 = document.createElement('li');
+        article7.innerHTML = '<a href="#">Artículo 7</a>';
+        filteredArticles.appendChild(article7);
+
+        const article9 = document.createElement('li');
+        article9.innerHTML = '<a href="#">Artículo 9</a>';
+        filteredArticles.appendChild(article9);
+      }
+    });
+  </script>
+</body>
+</html>
